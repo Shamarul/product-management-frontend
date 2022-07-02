@@ -1,25 +1,37 @@
-import logo from './logo.svg';
+import React, { useState, useEffect } from 'react';
 import './App.css';
+import {
+  Routes,
+  Route,
+  useNavigate,
+} from "react-router-dom";
+import Login from './components/login';
+import Product from './components/product';
+import 'antd/dist/antd.css';
 
 function App() {
+
+  useEffect(() => {
+    const fetchData = async () => {
+    
+    };
+
+    fetchData();
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+        <Route path="/product" element={<Product />} />
+        <Route path="/" element={<Login />} />
+        <Route
+          path="*"
+          element={
+            <p>EMPTY</p>
+          }
+        />
+    </Routes>
   );
 }
+
 
 export default App;
